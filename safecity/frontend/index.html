@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeCity Mérida - Mapa de Seguridad</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>🏛️ SafeCity Mérida</h1>
+            <p>Mapa interactivo de seguridad - Mérida, Yucatán</p>
+        </div>
+    </header>
+
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Panel de control -->
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar colonia..." />
+                <button id="search-btn">🔍 Buscar</button>
+            </div>
+            
+            <div class="legend">
+                <h3>Nivel de Seguridad</h3>
+                <div class="legend-item">
+                    <span class="legend-color green"></span>
+                    <span>Seguro (8.0+)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color orange"></span>
+                    <span>Medio (6.0-7.9)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color red"></span>
+                    <span>Inseguro (&lt;6.0)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mapa -->
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <!-- Panel de información -->
+        <div class="info-panel">
+            <h3>📊 Estadísticas de Seguridad</h3>
+            <div id="stats-container">
+                <div class="stat-item">
+                    <span class="stat-label">Iluminación de calles:</span>
+                    <span class="stat-value" id="iluminacion">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Presencia policial:</span>
+                    <span class="stat-value" id="policia">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Cámaras de seguridad:</span>
+                    <span class="stat-value" id="camaras">--</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Puntuación promedio:</span>
+                    <span class="stat-value" id="promedio">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resultados de búsqueda -->
+    <div id="search-results" class="search-results"></div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="src/app.js"></script>
+</body>
+</html>
